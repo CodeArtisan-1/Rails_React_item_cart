@@ -1,9 +1,23 @@
 var Body = React.createClass({
+	componentDidMount() {
+		$.getJSON('/api/v1/items.json', (response) => { this.setState({ items: response }) });
+	},
+
+	getInitialState() {
+		return { items: [] }
+	},
+
+	handleSubmit(item) {
+		console.log(item);
+		var newState = this.state.items.concat(item);
+		this.setState({ items: newState })
+	},
+
 	render() {
 		return (
 			<div>
-				<NewItem />
-				<AllItems />
+				<NewItem handleSubmit={this.handleSubmit} />
+				<AllItems items={this.state.items} />
 			</div>
 		)
 	}
