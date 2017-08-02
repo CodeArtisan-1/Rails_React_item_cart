@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'responders'
+gem 'jquery-rails'
 gem 'react-rails'
 
 group :development, :test do
